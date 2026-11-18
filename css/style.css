@@ -163,7 +163,10 @@ a{color:inherit}a:hover{opacity:.85}
 @media (prefers-reduced-motion: reduce){.fx *{animation:none !important}}
 .st-short{display:none}
 @media (max-width: 1100px){.st-full{display:none}.st-short{display:inline}}
-@media (max-width: 640px){.bar{flex-wrap:wrap !important}}
+@media (max-width: 640px){.bar{flex-wrap:wrap !important}.rc{flex:1 1 100% !important;min-width:0}.topnav{column-gap:16px !important;justify-content:flex-end}}
+/* Small phones (iPhone SE and narrower): keep the nav + theme picker inside the bar */
+@media (max-width: 400px){.navwrap{padding:0 16px !important}.bar{padding-left:18px !important}.topnav{column-gap:12px !important}.th{padding-left:10px !important}}
+@media (max-width: 340px){.theme-btn{width:38px !important}.th-label{font-size:11px !important}.topnav{font-size:12px !important;column-gap:10px !important;letter-spacing:0.03em !important}}
 @media (min-width: 1160px){.bar{column-gap:16px !important}.lg,.rc{display:contents !important}.o1{order:1}.topnav{order:2;margin:0 auto !important;column-gap:22px !important}.o3{order:3;flex:none}.o4{order:4;margin-left:-6px}}
 .notes>.note{min-width:0}
 @media (max-width: 1060px){.notes{grid-template-columns:repeat(2,minmax(0,1fr)) !important}}
@@ -171,3 +174,20 @@ a{color:inherit}a:hover{opacity:.85}
 .key{transition:transform .08s ease, box-shadow .08s ease}
 .key:hover{transform:translateY(3px) !important}
 @media (prefers-reduced-motion: reduce) { .caret { animation: none; } }
+/* Keep the Access Pass corner sparkle on-screen on phones */
+@media (max-width: 640px){.sway{transform-origin:50% 50% !important}.badge-spark{left:-8px !important;bottom:-22px !important;width:44px;height:44px}}
+/* Let the Access Pass shrink to fit narrow phones instead of hanging off the left edge */
+.sway{min-width:0}
+@media (max-width: 400px){.sway>div:nth-child(2){padding:20px !important;box-shadow:8px 8px 0 var(--deep) !important}.sway>div:nth-child(2)>p{font-size:32px !important}}
+/* Contact panel sparkles scale down with the screen */
+.cs-l{width:clamp(56px,16vw,100px);height:clamp(56px,16vw,100px)}
+.cs-r{width:clamp(44px,12vw,76px);height:clamp(44px,12vw,76px)}
+@media (max-width: 640px){.contact-spark{top:18px !important}}
+@media (max-width: 640px){.tour-line{font-size:clamp(28px,8vw,38px) !important}}
+/* Bone Anatomy + Group Schedule: two featured cards side by side, image on top (MartyPop stays full width) */
+.feat-row{display:flex;flex-wrap:wrap;gap:40px 36px;margin-top:48px}
+.feat-half{flex:1 1 480px !important;box-sizing:border-box;min-width:0;margin-top:0 !important;flex-direction:column !important;flex-wrap:nowrap !important;align-items:stretch !important;justify-content:flex-start !important;gap:42px !important}
+.feat-half h3{font-size:clamp(30px,3vw,38px) !important}
+.feat-half>div{flex:none !important}
+.feat-half>.feat-media{order:-1}
+@media (max-width: 640px){.feat-half{padding:22px !important}}
