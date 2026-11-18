@@ -30,6 +30,7 @@ Any of these formats works: `.gif`, `.webp`, `.png`, `.jpg`, `.jpeg`.
 | `candid` | the taped polaroid in "Hey, I'm Brynlee" ("me, mid-debug") |
 | `martypop` | the MartyPop featured card |
 | `anatomy` | the Bone Anatomy Study App card |
+| `schedule-app` | the Group Schedule Management App card |
 | `spreadsheet` | the Spreadsheet App card |
 | `chat` | the Chat Server card |
 | `image-processor` | the Image Processor card |
