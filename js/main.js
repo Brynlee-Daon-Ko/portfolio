@@ -113,7 +113,7 @@
           // Phone-app recordings sit inside a drawn phone, centred in the slot
           var phone = document.createElement('div');
           phone.className = 'phone';
-          phone.style.aspectRatio = v.videoWidth + ' / ' + v.videoHeight;
+          v.style.aspectRatio = v.videoWidth + ' / ' + v.videoHeight;
           phone.appendChild(v);
           slot.appendChild(phone);
           slot.classList.add('has-phone');
