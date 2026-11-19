@@ -86,6 +86,7 @@ body { margin: 0; background-color: var(--paper); }
 .slot[data-slot="anatomy"].has-video { aspect-ratio: 1758 / 1138 !important; }
 .slot[data-slot="anatomy"] > video { object-position: center bottom; }
 .slot[data-slot="snake"] > video { object-position: center 75%; }
+.slot[data-slot="spreadsheet"] > video { object-position: left center; }
 /* Phone frame for app recordings (slot has data-frame="phone").
    The screen area matches the video's exact shape, so the bezel and notch never cover any of the recording. */
 .slot.has-phone { height: auto !important; aspect-ratio: auto !important; padding: 26px 0; }
