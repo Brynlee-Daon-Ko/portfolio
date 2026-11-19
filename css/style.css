@@ -79,6 +79,11 @@ body { margin: 0; background-color: var(--paper); }
 .slot > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .slot.has-img { border-style: solid !important; }
 .slot.has-img .slot-label { display: none; }
+.slot > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.slot.has-video { height: auto !important; }
+/* Anatomy demo: trim the Windows title bar + menu bar (top 88px of 1226) so only the app UI shows */
+.slot[data-slot="anatomy"].has-video { aspect-ratio: 1758 / 1138 !important; }
+.slot[data-slot="anatomy"] > video { object-position: center bottom; }
 
 /* On phones the nav scrolls away instead of taking a quarter of the screen */
 @media (max-width: 640px) { .navwrap { position: relative !important; top: 0 !important; } }

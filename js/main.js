@@ -2,7 +2,7 @@
    - theme switcher (remembers the visitor's choice)
    - turns on scroll-driven effects
    - letter wave on load, Access Pass tilt
-   - image slots: drop files into assets/images/ and they appear */
+   - image/video slots: drop files into assets/images/ and they appear */
 (function () {
   'use strict';
 
@@ -65,15 +65,25 @@
     });
   }
 
-  /* ---------- Image slots ----------
-     Each placeholder has data-slot="name". Put assets/images/name.gif (or .webp, .png, .jpg, .jpeg)
-     in the repo and it fills the placeholder automatically. */
-  var EXTENSIONS = ['gif', 'webp', 'png', 'jpg', 'jpeg'];
-  document.querySelectorAll('.slot[data-slot]').forEach(function (slot) {
-    var name = slot.getAttribute('data-slot');
+  /* ---------- Image / video slots ----------
+     Each placeholder has data-slot="name". Put assets/images/name.mp4 (or .webm, .gif, .webp,
+     .png, .jpg, .jpeg) in the repo and it fills the placeholder automatically. Videos play muted
+     on a loop while on screen; with reduced motion they don't autoplay and show controls. */
+  var VIDEO_EXTENSIONS = ['mp4', 'webm'];
+  var IMAGE_EXTENSIONS = ['gif', 'webp', 'png', 'jpg', 'jpeg'];
+  var videoObserver = 'IntersectionObserver' in window && !reduceMotion
+    ? new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { var p = e.target.play(); if (p && p.catch) p.catch(function () {}); }
+          else e.target.pause();
+        });
+      }, { threshold: 0.25 })
+    : null;
+
+  function tryImages(slot, name) {
     var i = 0;
     (function tryNext() {
-      if (i >= EXTENSIONS.length) return;
+      if (i >= IMAGE_EXTENSIONS.length) return;
       var img = new Image();
       img.alt = slot.getAttribute('data-alt') || '';
       img.decoding = 'async';
@@ -82,7 +92,35 @@
         slot.classList.add('has-img');
       };
       img.onerror = function () { i += 1; tryNext(); };
-      img.src = 'assets/images/' + name + '.' + EXTENSIONS[i];
+      img.src = 'assets/images/' + name + '.' + IMAGE_EXTENSIONS[i];
     })();
+  }
+
+  function tryVideos(slot, name) {
+    var i = 0;
+    (function tryNext() {
+      if (i >= VIDEO_EXTENSIONS.length) { tryImages(slot, name); return; }
+      var v = document.createElement('video');
+      v.muted = true;
+      v.loop = true;
+      v.playsInline = true;
+      v.preload = 'metadata';
+      v.setAttribute('aria-label', slot.getAttribute('data-alt') || '');
+      if (reduceMotion) v.controls = true;
+      v.onloadedmetadata = function () {
+        v.onerror = null;
+        slot.style.aspectRatio = v.videoWidth + ' / ' + v.videoHeight;
+        slot.appendChild(v);
+        slot.classList.add('has-img', 'has-video');
+        v.currentTime = 0.01; // paint the first frame right away, even before (or without) playback
+        if (videoObserver) videoObserver.observe(v);
+      };
+      v.onerror = function () { i += 1; tryNext(); };
+      v.src = 'assets/images/' + name + '.' + VIDEO_EXTENSIONS[i];
+    })();
+  }
+
+  document.querySelectorAll('.slot[data-slot]').forEach(function (slot) {
+    tryVideos(slot, slot.getAttribute('data-slot'));
   });
 })();
