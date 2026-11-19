@@ -109,8 +109,18 @@
       if (reduceMotion) v.controls = true;
       v.onloadedmetadata = function () {
         v.onerror = null;
-        slot.style.aspectRatio = v.videoWidth + ' / ' + v.videoHeight;
-        slot.appendChild(v);
+        if (slot.getAttribute('data-frame') === 'phone') {
+          // Phone-app recordings sit inside a drawn phone, centred in the slot
+          var phone = document.createElement('div');
+          phone.className = 'phone';
+          phone.style.aspectRatio = v.videoWidth + ' / ' + v.videoHeight;
+          phone.appendChild(v);
+          slot.appendChild(phone);
+          slot.classList.add('has-phone');
+        } else {
+          slot.style.aspectRatio = v.videoWidth + ' / ' + v.videoHeight;
+          slot.appendChild(v);
+        }
         slot.classList.add('has-img', 'has-video');
         v.currentTime = 0.01; // paint the first frame right away, even before (or without) playback
         if (videoObserver) videoObserver.observe(v);
