@@ -118,7 +118,11 @@
           slot.appendChild(phone);
           slot.classList.add('has-phone');
         } else {
-          slot.style.aspectRatio = v.videoWidth + ' / ' + v.videoHeight;
+          // data-fit="cover" keeps the slot's own size and crops the video to fill it;
+          // otherwise the slot takes the video's shape so nothing is cut off.
+          if (slot.getAttribute('data-fit') !== 'cover') {
+            slot.style.aspectRatio = v.videoWidth + ' / ' + v.videoHeight;
+          }
           slot.appendChild(v);
         }
         slot.classList.add('has-img', 'has-video');
