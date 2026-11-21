@@ -11,7 +11,7 @@ Videos play muted on a loop while on screen, and the slot takes the video's shap
 - `schedule-app` — Group Schedule Management App card (`schedule-app.mp4`, shown in a phone frame via `data-frame="phone"` on the slot)
 - `snake` — Snake Game card (`snake.mp4`; `data-fit="cover"` keeps the card's 230px height and crops to fill)
 - `spreadsheet` — Spreadsheet App card (`spreadsheet.mp4`, cropped to the form + top rows; `data-fit="cover"`)
-- `chat` — Chat Server card
+- `chat` — Chat Server card (`chat.mp4`, the two client windows cropped side by side; `data-fit="cover"`)
 - `image-processor` — Image Processor card
 
 Tip: keep videos small. Re-encode screen recordings to ~600px wide with no audio, e.g.
