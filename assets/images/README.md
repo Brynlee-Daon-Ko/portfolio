@@ -14,7 +14,9 @@ Videos play muted on a loop while on screen, and the slot takes the video's shap
 - `chat` — Chat Server card (`chat.mp4`, the two client windows cropped side by side; `data-fit="cover"`)
 - `bakeoff` — Square Matching card (`bakeoff.mp4`, cropped to the play area without the key hints; `data-fit="cover"`)
 - `image-panel` — Image Panel card (`image-panel.mp4`, bottom whitespace cropped off; slot takes the video's shape)
+- `dishbook` — DishBook card
 - `restaurant` — Restaurant Menu Design card (`restaurant.mp4`, a slow scroll through the two Figma pages rendered from the PDFs; `data-fit="cover"`)
+- `cms-page` — CMS Profile Page card (`cms-page.mp4`, a scroll down a headless-browser screenshot of the live page, since the page may be deleted; `data-fit="cover"`)
 
 Tip: keep videos small. Re-encode screen recordings to ~600px wide with no audio, e.g.
 `ffmpeg -i in.mov -an -vf scale=600:-2,fps=30 -c:v libx264 -crf 26 -preset slow -movflags +faststart out.mp4`
