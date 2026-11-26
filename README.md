@@ -33,7 +33,7 @@ Any of these formats works: `.gif`, `.webp`, `.png`, `.jpg`, `.jpeg`.
 | `schedule-app` | the Group Schedule Management App card |
 | `spreadsheet` | the Spreadsheet App card |
 | `chat` | the Chat Server card |
-| `image-processor` | the Image Processor card |
+| `image-panel` | the Image Panel card |
 
 Example: save your headshot as `assets/images/profile.jpg`, commit, push. Done.
 The Snake Game card shows a pixel-art game screen instead of a slot — it's part of the design.
