@@ -92,6 +92,7 @@ body { margin: 0; background-color: var(--paper); }
 /* Profile portrait: transparent sticker cut-out on the theme's soft color */
 .slot[data-slot="profile"].has-img { background-color: var(--soft) !important; background-image: none !important; }
 .slot[data-slot="profile"] > img { object-position: 50% 0%; }
+.slot[data-slot="profile"] { height: auto !important; aspect-ratio: 4 / 5; }
 /* Phone frame for app recordings (slot has data-frame="phone").
    The screen area matches the video's exact shape, so the bezel and notch never cover any of the recording. */
 .slot.has-phone { height: auto !important; aspect-ratio: auto !important; padding: 26px 0; }
