@@ -35,7 +35,7 @@ Any of these formats works: `.gif`, `.webp`, `.png`, `.jpg`, `.jpeg`.
 | `chat` | the Chat Server card |
 | `bakeoff` | the Square Matching card |
 | `image-panel` | the Image Panel card |
-| `smartwatch` | the Smartwatch Keyboard card |
+| `restaurant` | the Restaurant Menu Design card |
 
 Example: save your headshot as `assets/images/profile.jpg`, commit, push. Done.
 The Snake Game card shows a pixel-art game screen instead of a slot — it's part of the design.
