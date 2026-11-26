@@ -17,6 +17,7 @@
 /* ---------- Themes ---------- */
 :root,
 html[data-theme="cherry-soda"] {
+  --portrait: var(--tint);
   --deep: #670626; --deep-rgb: 103,6,38;
   --pop: #F98093; --soft: #FFEDA8; --paper: #F7F1EA; --card: #FFFDF8;
   --spark: #8DB33A; --on-spark: #670626; --cta: #F98093; --cta-text: #670626;
@@ -24,6 +25,7 @@ html[data-theme="cherry-soda"] {
   --v1: #FF4D7D; --v2: #FFC738; --v3: #6CC24A; --win: #FFC738; --cap: #6CC24A;
 }
 html[data-theme="night-garden"] {
+  --portrait: var(--spark);
   --deep: #301728; --deep-rgb: 48,23,40;
   --pop: #ABA0D9; --soft: #FFEDA8; --paper: #F7F1EA; --card: #FFFDF8;
   --spark: #F98093; --on-spark: #301728; --cta: #ABA0D9; --cta-text: #301728;
@@ -31,6 +33,7 @@ html[data-theme="night-garden"] {
   --v1: #9B6BFF; --v2: #FFC738; --v3: #FF6FA3; --win: #FFC738; --cap: #FF6FA3;
 }
 html[data-theme="persimmon-studio"] {
+  --portrait: var(--soft);
   --deep: #233257; --deep-rgb: 35,50,87;
   --pop: #E8875C; --soft: #C9D4EA; --paper: #E2D5BB; --card: #FBF7EE;
   --spark: #435A86; --on-spark: #FBF7EE; --cta: #E8875C; --cta-text: #233257;
@@ -38,6 +41,7 @@ html[data-theme="persimmon-studio"] {
   --v1: #FF7433; --v2: #2F6BFF; --v3: #FFD23F; --win: #FFD23F; --cap: #2F6BFF;
 }
 html[data-theme="sakura-cafe"] {
+  --portrait: var(--tint);
   --deep: #443025; --deep-rgb: 68,48,37;
   --pop: #EC9C9D; --soft: #F2CFCA; --paper: #FAF1EE; --card: #FFFAF8;
   --spark: #7F5836; --on-spark: #FAF1EE; --cta: #EC9C9D; --cta-text: #443025;
@@ -89,8 +93,8 @@ body { margin: 0; background-color: var(--paper); }
 .slot[data-slot="spreadsheet"] > video { object-position: left center; }
 .slot[data-slot="chat"] > video { object-position: left center; }
 
-/* Profile portrait: transparent sticker cut-out on the theme's soft color */
-.slot[data-slot="profile"].has-img { background-color: var(--soft) !important; background-image: none !important; }
+/* Profile portrait: transparent sticker cut-out on a per-theme backdrop (--portrait, set in each theme above) */
+.slot[data-slot="profile"].has-img { background-color: var(--portrait) !important; background-image: none !important; }
 .slot[data-slot="profile"] > img { object-position: 50% 0%; }
 .slot[data-slot="profile"] { height: auto !important; aspect-ratio: 4 / 5; }
 /* Phone frame for app recordings (slot has data-frame="phone").
