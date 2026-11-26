@@ -6,7 +6,7 @@ Videos play muted on a loop while on screen, and the slot takes the video's shap
 
 - `profile` — Access Pass photo (hero)
 - `candid` — "me, mid-debug" polaroid (About)
-- `martypop` — MartyPop featured card
+- `martypop` — MartyPop featured card (`martypop.mp4`, Brynlee's own screen recording of the app, bottom strip cropped to hide the Next.js dev badge and browser link bar)
 - `anatomy` — Bone Anatomy Study App card (`anatomy.mp4` in use)
 - `schedule-app` — Group Schedule Management App card (`schedule-app.mp4`, shown in a phone frame via `data-frame="phone"` on the slot)
 - `snake` — Snake Game card (`snake.mp4`; `data-fit="cover"` keeps the card's 230px height and crops to fill)
