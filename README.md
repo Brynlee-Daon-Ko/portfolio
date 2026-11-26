@@ -33,6 +33,7 @@ Any of these formats works: `.gif`, `.webp`, `.png`, `.jpg`, `.jpeg`.
 | `schedule-app` | the Group Schedule Management App card |
 | `spreadsheet` | the Spreadsheet App card |
 | `chat` | the Chat Server card |
+| `bakeoff` | the Bakeoff 2: Square Matching card |
 | `image-panel` | the Image Panel card |
 
 Example: save your headshot as `assets/images/profile.jpg`, commit, push. Done.
