@@ -14,7 +14,7 @@ Videos play muted on a loop while on screen, and the slot takes the video's shap
 - `chat` — Chat Server card (`chat.mp4`, the two client windows cropped side by side; `data-fit="cover"`)
 - `bakeoff` — Square Matching card (`bakeoff.mp4`, cropped to the play area without the key hints; `data-fit="cover"`)
 - `image-panel` — Image Panel card (`image-panel.mp4`, bottom whitespace cropped off; slot takes the video's shape)
-- `smartwatch` — Smartwatch Keyboard card (`smartwatch.mp4`, cropped to the watch face; `data-fit="cover"`)
+- `smartwatch` — Smartwatch Keyboard card (`smartwatch.mp4`, Target/Entered text placed beside the watch face so both fit the wide card; `data-fit="cover"`)
 
 Tip: keep videos small. Re-encode screen recordings to ~600px wide with no audio, e.g.
 `ffmpeg -i in.mov -an -vf scale=600:-2,fps=30 -c:v libx264 -crf 26 -preset slow -movflags +faststart out.mp4`
